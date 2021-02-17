@@ -44,15 +44,14 @@ client.connect(err => {
 
     //delete one from db
     app.delete('/delete/:id', (req, res) => {
+        console.log(req.params.id);
         collection.deleteOne({ _id: ObjectId(req.params.id) })
             .then(result => {
-                res.send(result.deletedCount > 0)
+                res.send(result)
+                console.log(res.send);
             })
-            // console.log(ObjectId(req.params.id));
+             console.log(ObjectId(req.params.id));
     })
-
-
-
     // client.close();
 });
 
